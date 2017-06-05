@@ -29,7 +29,7 @@
             </StackLayout.Padding>
             <StackLayout VerticalOptions="CenterAndExpand"
                          Spacing="14">
-                <Label Text="Welcome to Locaticus"
+                <Label Text="12M Satış"
                        HorizontalOptions="Center"
                        TextColor="White">
                     <Label.FontSize>
@@ -64,15 +64,15 @@
                      x:Name="ContentStacklayout"
                      Padding="0,20,0,20">
             <StackLayout Spacing="10">
-                <local:LoginPageEntry Placeholder="E-mail address"
+                <local:LoginPageEntry Placeholder="Kullanıcı Adı"
                                       PlaceholderColor="#6c6e77"
                                       BackgroundColor="#474a55"
                                       TextColor="White"
                                       HeightRequest="50"
                                       CornerRadius="3"
-                                      LeftImageSource="LoginPageDemo.Assets.Images.mail.png"/>
+                                      LeftImageSource="LoginPageDemo.Assets.Images.username.png"/>
                 <local:LoginPageEntry IsPassword="True"
-                                      Placeholder="Password"
+                                      Placeholder="Şifre"
                                       PlaceholderColor="#6c6e77"
                                       BackgroundColor="#474a55"
                                       TextColor="White"

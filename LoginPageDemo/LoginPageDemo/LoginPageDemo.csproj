@@ -85,7 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Assets\Images\logo.png" />
-    <EmbeddedResource Include="Assets\Images\mail.png" />
+    <EmbeddedResource Include="Assets\Images\username.png" />
     <EmbeddedResource Include="Assets\Images\password.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
