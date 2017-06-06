@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.12mconsulting.com.tr/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.12mconsulting.com.tr/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.12mconsulting.com.tr/">
+      <s:element name="LoginKontrol">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AndroidID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginKontrolResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginKontrolResult" type="tns:Login" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Login">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Kod" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdSoyad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DepoKodu" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DepoID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetClients">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetClientsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetClientsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LoginKontrolSoapIn">
+    <wsdl:part name="parameters" element="tns:LoginKontrol" />
+  </wsdl:message>
+  <wsdl:message name="LoginKontrolSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginKontrolResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetClientsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetClients" />
+  </wsdl:message>
+  <wsdl:message name="GetClientsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetClientsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AndroidSoap">
+    <wsdl:operation name="LoginKontrol">
+      <wsdl:input message="tns:LoginKontrolSoapIn" />
+      <wsdl:output message="tns:LoginKontrolSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClients">
+      <wsdl:input message="tns:GetClientsSoapIn" />
+      <wsdl:output message="tns:GetClientsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AndroidSoap" type="tns:AndroidSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LoginKontrol">
+      <soap:operation soapAction="http://www.12mconsulting.com.tr/LoginKontrol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClients">
+      <soap:operation soapAction="http://www.12mconsulting.com.tr/GetClients" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AndroidSoap12" type="tns:AndroidSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LoginKontrol">
+      <soap12:operation soapAction="http://www.12mconsulting.com.tr/LoginKontrol" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClients">
+      <soap12:operation soapAction="http://www.12mconsulting.com.tr/GetClients" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Android">
+    <wsdl:port name="AndroidSoap" binding="tns:AndroidSoap">
+      <soap:address location="http://localhost:3841/service/android.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AndroidSoap12" binding="tns:AndroidSoap12">
+      <soap12:address location="http://localhost:3841/service/android.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
